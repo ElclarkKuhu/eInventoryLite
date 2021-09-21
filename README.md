@@ -3,6 +3,7 @@
 Elclark Inventory Lite. Is an simple ESX Inventory with drag and drop and splittable items to organize your items and weapons
 
 ## Screenshot
+![Screenshot close up](screenshot2.png)
 ![Screenshot](screenshot.png)
 
 ## Features
@@ -16,11 +17,11 @@ Elclark Inventory Lite. Is an simple ESX Inventory with drag and drop and splitt
 
 ## Keybind
 
-- (Default) `F2` To *Open Inventory*
-- `Left Click` To *Use Item*
-- `Right Click` To *Drop Item* (Hold `Shift` To *drop all Items*)
-- `Drag & Drop` To *Move Item* (Hold `Shift` To *Move all Items*)
-- `ESC / F2` To *Close Inventory*
+- (Default) `F2` To <b>Open Inventory</b>
+- `Left Click` To <b>Use Item</b>
+- `Right Click` To <b>Drop Item</b> (Hold `Shift` To <b>drop all Items</b>)
+- `Drag & Drop` To <b>Move Item</b> (Hold `Shift` To <b>Move all Items</b>)
+- `ESC / F2` To <b>Close Inventory<b>
 
 ## Requirements
 
