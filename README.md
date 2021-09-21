@@ -2,6 +2,9 @@
 
 Elclark Inventory Lite. Is an simple ESX Inventory with drag and drop and splittable items to organize your items and weapons
 
+## Screenshot
+![Screenshot](screenshot.png)
+
 ## Features
 
 - Drag & Drop
