@@ -16,11 +16,11 @@ Elclark Inventory Lite. Is an simple ESX Inventory with drag and drop and splitt
 
 ## Keybind
 
-- (Default) <b>F2</b> To *Open Inventory*
-- <b>Left Click</b> To *Use Item*
-- <b>Right Click</b> To *Drop Item* (Hold <b>Shift</b> To *drop all Items*)
-- <b>Drag & Drop</b> To *Move Item* (Hold <b>Shift</b> To *Move all Items*)
-- <b>ESC / F2</b> To *Close Inventory*
+- (Default) `F2` To *Open Inventory*
+- `Left Click` To *Use Item*
+- `Right Click` To *Drop Item* (Hold `Shift` To *drop all Items*)
+- `Drag & Drop` To *Move Item* (Hold `Shift` To *Move all Items*)
+- `ESC / F2` To *Close Inventory*
 
 ## Requirements
 
