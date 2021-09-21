@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap');
+
+:root {
+    --clr-bg: #1818189a;
+    --clr-bg-sec: #232323;
+    --clr-txt: rgb(255 255 255 / 0.75);
+    --clr-accent: rgb(202 0 0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */   
+}
+
+body {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    color: var(--clr-txt);
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    font-family: 'Source Code Pro', monospace;
+}
+
+h1 {
+    font-size: 1.2rem;
+}
+
+.accent {
+    font-weight: bold;
+}
+
+.title {
+    display: flex;
+    border-bottom: 1px solid rgb(255 255 255 / 0.5);
+    justify-content: space-between;
+}
+
+.container {
+    border-radius: .5rem;
+    
+    /* transform: scale(0); */
+}
+
+/* .container.active {
+    transform: scale(1);
+} */
+
+.filler {
+    width: 25rem;
+}
+
+.inventory {
+    background: var(--clr-bg);
+
+    width: 25rem;
+
+    padding: 1rem;
+    margin-left: 10rem;
+}
+
+.weight {
+    color: rgb(255 255 255 / 0.5);
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+
+    height: 25rem;
+
+    margin: .5rem 0;
+}
+
+.it {
+    background:  var(--clr-bg-sec);
+
+    opacity: .75;
+
+    width: 4.5rem;
+    height: 4.5rem;
+
+    border: 1px solid rgb(255 255 255 / 0);
+
+    transition: all .4s ease;
+}
+
+.it:hover, .it:focus, .it:focus-visible {
+    opacity: 1;
+    border: 1px solid rgb(255 255 255 / 0.5);
+    transition: none;
+}
+
+.dragged-over {
+    opacity: 1;
+    border: 1px solid rgb(255 255 255 / 0.5);
+}
+
+.dragging {
+    opacity: .75;
+    background: transparent;
+    border: none;
+}
+
+.it-img {
+    width: 4.5rem;
+    height: 4.5rem;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255 255 255 / 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:rgba(255 255 255 / 0.4);
+}
