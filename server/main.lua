@@ -173,23 +173,20 @@ RegisterNetEvent('eInventoryLite:dropItem', function(item)
     for key, value in pairs(data[identifier]) do
         if item.id == value.id then
             if value.type == 'item_standard' then
-                local InventoryItem = xPlayer.getInventoryItem(value.name)
-                local count = 1
-                if item.all then
-                    count = 0
-                    for k, v in pairs(data[identifier]) do
-                        if v.name == value.name and v.slot == value.slot then
-                            count = count + 1
-                        end
+                local inventoryItem = xPlayer.getInventoryItem(value.name)
+                if inventoryItem.count > 0 then
+                    local count = 1
+                    if item.all then
+                        count = inventoryItem.count
                     end
+                    ESX.CreatePickup(value.type, inventoryItem.name, count, inventoryItem.label, source)
+                    xPlayer.removeInventoryItem(inventoryItem.name, count)
                 end
-                ESX.CreatePickup(value.type, InventoryItem.name, count, InventoryItem.label, source)
-                xPlayer.removeInventoryItem(value.name, count)
             else
                 local loadoutNum, weapon = xPlayer.getWeapon(value.name)
                 if weapon then
-                    ESX.CreatePickup(value.type, value.name, weapon.ammo, weapon.label, source, weapon.components, weapon.tintIndex)
-                    xPlayer.removeWeapon(value.name)
+                    ESX.CreatePickup(value.type, weapon.name, weapon.ammo, weapon.label, source, weapon.components, weapon.tintIndex)
+                    xPlayer.removeWeapon(weapon.name)
                 end
             end
 

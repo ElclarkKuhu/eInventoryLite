@@ -124,7 +124,7 @@ function createItem(obj, append) {
                     'slot' : obj.slot,
                     'all' : true
                 }));
-                data.filter(i => obj.name != i.name && obj.slot === i.slot)
+                data = data.filter(i => obj.name != i.name && obj.slot === i.slot)
             } else {
                 $.post(`https://${GetParentResourceName()}/dropItem`, JSON.stringify({
                     'id' : event.currentTarget.id,
@@ -205,6 +205,7 @@ function updateData(container, draggable, shiftKey) {
                     data[i].slot = container.id
                 }
             })
+
             $.post(`https://${GetParentResourceName()}/moveSlot`, JSON.stringify({
                 'mode': 'move',
                 'all': true,
@@ -215,6 +216,7 @@ function updateData(container, draggable, shiftKey) {
             }));
         } else {
             data[index].slot = container.id
+
             $.post(`https://${GetParentResourceName()}/moveSlot`, JSON.stringify({
                 'mode': 'move',
                 'all': false,
