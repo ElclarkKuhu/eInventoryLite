@@ -1,23 +1,44 @@
 local display = false
 
-RegisterCommand('OpenInventory', function()
+-- When player connected Load Player data and cache it on server
+RegisterNetEvent('esx:playerLoaded', function(playerData)
+    TriggerServerEvent('eInventoryLite:LoadPlayerData')
+end)
+
+RegisterKeyMapping("openInventory", "Open Inventory", "keyboard", "F2")
+RegisterCommand('openInventory', function()
     TriggerServerEvent('eInventoryLite:getInventory')
+    TriggerEvent('eInventory:openInventory') -- For Add-On
+    
     SendNUIMessage({
         action = 'display',
-        is = true
+        is = true,
+        showLoading = true
     })
+
     SetNuiFocus(true, true)
     display = true
 end, false)
 
-RegisterKeyMapping("OpenInventory", "Open Inventory", "keyboard", "F2")
+RegisterNetEvent('eInventoryLite:inventoryList', function(data, weights)
+    SendNUIMessage({
+        action = 'clearItem',
+    })
+    
+    SendNUIMessage({
+        action = 'addItem',
+        type = 0,
+        weights = weights,
+        data = data, 
+    })
+end)
 
-RegisterCommand('CloseInventory', function()
+RegisterCommand('closeInventory', function()
     closeNUI()
 end, false)
 
-RegisterNetEvent('esx:playerLoaded', function(playerData)
-    TriggerServerEvent('eInventoryLite:LoadPlayerData')
+RegisterNUICallback('getConfig', function(data, cb)
+    cb(configs)
 end)
 
 RegisterNUICallback('useItem', function(data, cb)
@@ -37,17 +58,11 @@ RegisterNUICallback('close', function(data, cb)
     display = false
 end)
 
-RegisterNetEvent('eInventoryLite:inventoryList', function(data)
+function closeNUI()
     SendNUIMessage({
         action = 'clearItem',
     })
-    SendNUIMessage({
-        action = 'addItem',
-        data = data, 
-    })
-end)
 
-function closeNUI()
     SendNUIMessage({
         action = 'display',
         is = false

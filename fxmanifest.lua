@@ -1,15 +1,16 @@
 fx_version 'cerulean'
 
 author 'Elclark'
-version '1.0.1'
+version '1.2.0'
 description 'Elclark Inventory Lite. Is an simple ESX Inventory with drag and drop and splittable items to organize your items and weapons'
 
 game 'gta5'
 
 ui_page 'NUI/index.html'
 
-shared_script {
+shared_scripts {
 	'@es_extended/imports.lua',
+	'config.lua'
 }
 
 files {
@@ -31,6 +32,8 @@ files {
 
     'client/main.lua',
     'server/main.lua',
+
+	'config.lua'
 }
 
 client_script {

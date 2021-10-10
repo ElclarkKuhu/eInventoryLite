@@ -129,6 +129,7 @@ RegisterNetEvent('eInventoryLite:getInventory', function()
                     label = item.label,
                     type = value.type,
                     slot = value.slot,
+                    weight = item.weight,
                     usable = item.usable,
                     canRemove = item.canRemove
                 })
@@ -141,6 +142,7 @@ RegisterNetEvent('eInventoryLite:getInventory', function()
                         label = weapon.label,
                         type = value.type,
                         slot = value.slot,
+                        weight = 0,
                         usable = false,
                         canRemove = true
                     })
@@ -150,7 +152,7 @@ RegisterNetEvent('eInventoryLite:getInventory', function()
     else
         loadData(identifier)
     end
-    TriggerClientEvent('eInventoryLite:inventoryList', source, res)
+    TriggerClientEvent('eInventoryLite:inventoryList', source, res, {type = 0, weight = xPlayer.getWeight(), maxWeight = ESX.GetConfig().MaxWeight})
 end)
 
 RegisterNetEvent('eInventoryLite:useItem', function(item)

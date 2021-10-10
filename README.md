@@ -19,8 +19,8 @@ Elclark Inventory Lite. Is an simple ESX Inventory with drag and drop and splitt
 
 - (Default) `F2` To <b>Open Inventory</b>
 - `Left Click` To <b>Use Item</b>
-- `Right Click` To <b>Drop Item</b> (Hold `Shift` To <b>drop all Items</b>)
-- `Drag & Drop` To <b>Move Item</b> (Hold `Shift` To <b>Move all Items</b>)
+- `Right Click` To open Context Menu
+- `Drag & Drop` To <b>Move Item</b> (Hold `Shift` To <b>Move one Items</b> only)
 - `ESC / F2` To <b>Close Inventory<b>
 
 ## Requirements
@@ -28,15 +28,11 @@ Elclark Inventory Lite. Is an simple ESX Inventory with drag and drop and splitt
 - [esx-legacy](https://github.com/esx-framework/esx-legacy)
 - [mysql-async](https://github.com/brouznouf/fivem-mysql-async/releases/tag/3.3.2)
 
-## Download
+## Download & Installation
 
-1. Clone the project and add it to your resorces directory
-2. Add the project to your `server.cfg`
+1. Clone or [Download](https://github.com/ElclarkKuhu/eInventoryLite/releases) the project and add it to your resorces directory
+2. Add this to your `server.cfg`:
+    ```
+    ensure eInventoryLite
+    ```
 3. Import `eInventoryLite.sql` in your database
-
-## Installation
-- Add this to your `server.cfg`:
-
-```
-ensure eInventoryLite
-```
