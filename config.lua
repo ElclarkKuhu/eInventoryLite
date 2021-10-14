@@ -4,6 +4,7 @@ configs = {
 
     -- Player
     playerInventorySlot = 50, -- Multiply by 5 for best UI experience
+    includeWeapons = true,
 
     -- Server
     -- useMySql = true -- if useMySql disabled using esx_datastore instead (Enable For Performance and efficiency) 

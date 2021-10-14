@@ -2,6 +2,7 @@ let containers
 let display = false
 let isLoading = false
 let showMiddleMenu = false
+let inventoryMaxWeight = 0
 let contextElement = document.getElementById('context-menu')
 let infoMenu = document.getElementById('info-menu')
 
@@ -38,7 +39,7 @@ window.addEventListener('message', (event) => {
     if (eventData.action === 'addItem') {
         setLoading(0, false)
 
-        setWeight(eventData.type, eventData.weights.weight, eventData.weights.maxWeight)
+        inventoryMaxWeight = eventData.weights.maxWeight
 
         eventData.data.forEach(item => {
             addTo(data, item)
@@ -123,9 +124,12 @@ function setupContainers(type, count) {
 }
 
 function useItem(id) {
-    if (getFrom(data, null, id).usable) {
+    let value = getFrom(data, null, id)
+
+    if (value.usable) {
         closeNUI()
         $.post(`https://${GetParentResourceName()}/useItem`, JSON.stringify({
+            'name': value.name,
             'id': id
         }))
         data = removeFrom(data, id)
@@ -211,8 +215,11 @@ function reloadData() {
         container.innerHTML = ''
     })
 
+    let weight = 0 
     data.forEach(obj => {
         let container = document.getElementById(obj.slot)
+        weight += obj.weight
+
         if (container.innerHTML === '') {
             createItem(obj, container)
         } else {
@@ -223,6 +230,7 @@ function reloadData() {
         }
     })
 
+    setWeight(0, weight, inventoryMaxWeight)
     contextElement.classList.remove('active')
 }
 

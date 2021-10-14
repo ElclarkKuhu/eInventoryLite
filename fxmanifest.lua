@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 
 author 'Elclark'
-version '1.2.0'
+version '1.2.1'
 description 'Elclark Inventory Lite. Is an simple ESX Inventory with drag and drop and splittable items to organize your items and weapons'
 
 game 'gta5'
